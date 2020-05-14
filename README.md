@@ -20,6 +20,12 @@ Then in terminal from the root of your rails app/project repo:
 
 This will add a heroku remote link to your git repo. You can double check that it's there with `git remote -v`.
 
+We also need to set a `SECRET_KEY` env var on the heroku website. You can select your new heroku project from the heroku website dashboard. Once selected, click onto the "Settings" tab and scroll down until you see a "reveal Config Vars" button. Clicking that button should reveal all of the env vars for the app. We can simply add a new one that matches "SECRET_KEY" and the value can be any string.
+
+*example*:
+
+![](./heroku_env_vars.png)
+
 Next we need to push up our changes to the heroku remote.
 > **Please Note:** this will only push the master branch. It wont push up any other branch.
 
