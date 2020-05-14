@@ -13,6 +13,7 @@ Change the secret key line inside of `app/controllers/application_controller.rb`
 Then in terminal from the root of your rails app/project repo:
 
 `heroku create <name of your backend>`
+
 *example*:
 `heroku create tasteville-api`
 
