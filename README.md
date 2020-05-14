@@ -12,9 +12,7 @@ Change the secret key line inside of `app/controllers/application_controller.rb`
 
 Then in terminal from the root of your rails app/project repo:
 
-
-
-- `heroku create <name of your backend>`
+`heroku create <name of your backend>`
 *example*:
 `heroku create tasteville-api`
 
@@ -38,6 +36,8 @@ git push heroku master
 <details>
 <summary>Code for if you have a nested rails app:</summary>
 
+<hr />
+
 Instead of `git push heroku master` run this line:
 
 ```bash
@@ -47,6 +47,7 @@ git subtree push --prefix=my/folder heroku master
 ```bash
 git subtree push --prefix=./school-app heroku master
 ```
+<hr />
 
 </details>
 <br />
