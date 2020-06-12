@@ -62,6 +62,7 @@ heroku run rails db:seed
 
 ## Front end deployment:
 
+
 First change your `api-helper.js` file to looks like this:
 
 ```js
@@ -72,6 +73,7 @@ const api = axios.create({
 })
 ```
 
+### Surge
 
 In terminal from inside of your react directory:
 
@@ -81,3 +83,26 @@ cd build/
 mv index.html  200.html
 surge
 ```
+
+### Netlify
+
+- Once you are logged into your netlify account on netlify.com,
+click on the "New site from Git"
+
+- choose "GitHub" under the Continuous Deployment section
+
+- Select your repo from the list.
+
+- On the next screen we will need to define the build settings:
+  - build command: `npm run build`
+  - publish directory: `build/`
+
+- Then click "deploy". This will fail
+
+- we need to edit the base directory for our app. Let's click on "Site settings"
+
+- In the "Build & Deploy" tab there is a "Build settings" section. Click "Edit settings" on this section
+
+- last change we need to make is to set the "Base directory" to `client/` and "save"
+
+- We're now ready to re-deploy our app. Back in the main "Overview" section for our app, click on "Production deploys" and then "trigger deploy" - "deploy site"
