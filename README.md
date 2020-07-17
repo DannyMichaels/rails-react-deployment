@@ -7,7 +7,7 @@
 Change the secret key line inside of `app/controllers/application_controller.rb` to look like this:
 
 ```ruby
-  SECRET_KEY = Rails.env === 'production' ? ENV['SECRET_KEY'] : Rails.application.secrets.secret_key_base.to_s
+  SECRET_KEY = Rails.env == 'production' ? ENV['SECRET_KEY'] : Rails.application.secrets.secret_key_base.to_s
 ```
 
 Then in terminal from the root of your rails app/project repo:
