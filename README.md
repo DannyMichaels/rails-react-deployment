@@ -48,7 +48,7 @@ heroku run rails db:migrate
 heroku run rails db:seed
 ```
 
-##### auth only apps
+#### - auth only apps -
 
 We also need to set a `RAILS_MASTER_KEY` env var on the heroku website. The Rails master key is what allows our app to access our secret key that we used for auth. You can find you your master key in the file `/config/master.key`. This file should be git ignored which is why we need to add it to heroku separately.
 
