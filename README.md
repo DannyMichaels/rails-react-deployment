@@ -67,7 +67,7 @@ $ heroku config:set RAILS_MASTER_KEY=123456789
 ## Front end deployment:
 
 
-First change your `api-helper.js` file to looks like this:
+First change your `api-config.js` file to looks like this:
 
 ```js
 const baseUrl = process.env.NODE_ENV === 'production' ? /* link to your heroku app. Example:*/'https://school-app-test.herokuapp.com/' : 'http://localhost:3000' 
