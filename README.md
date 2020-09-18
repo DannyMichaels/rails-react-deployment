@@ -13,9 +13,6 @@ In terminal from the root of your rails app/project repo:
 
 This will add a heroku remote link to your git repo. You can double check that it's there with `git remote -v`.
 
-
-*example*:
-
 Next we need to push up our changes to the heroku remote.
 > **Please Note:** this will only push the master branch. It wont push up any other branch.
 
