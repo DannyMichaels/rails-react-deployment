@@ -4,13 +4,7 @@
 
 ## Back end deployment:
 
-Change the secret key line inside of `app/controllers/application_controller.rb` to look like this:
-
-```ruby
-  SECRET_KEY = Rails.env == 'production' ? ENV['SECRET_KEY'] : Rails.application.secrets.secret_key_base.to_s
-```
-
-Then in terminal from the root of your rails app/project repo:
+In terminal from the root of your rails app/project repo:
 
 `heroku create <name of your backend>`
 
@@ -19,11 +13,8 @@ Then in terminal from the root of your rails app/project repo:
 
 This will add a heroku remote link to your git repo. You can double check that it's there with `git remote -v`.
 
-We also need to set a `SECRET_KEY` env var on the heroku website. You can select your new heroku project from the heroku website dashboard. Once selected, click onto the "Settings" tab and scroll down until you see a "reveal Config Vars" button. Clicking that button should reveal all of the env vars for the app. We can simply add a new one that matches "SECRET_KEY" and the value can be any string.
 
 *example*:
-
-![](./heroku_env_vars.png)
 
 Next we need to push up our changes to the heroku remote.
 > **Please Note:** this will only push the master branch. It wont push up any other branch.
@@ -60,6 +51,22 @@ heroku run rails db:migrate
 heroku run rails db:seed
 ```
 
+##### auth only apps
+
+We also need to set a `RAILS_MASTER_KEY` env var on the heroku website. The Rails master key is what allows our app to access our secret key that we used for auth. You can find you your master key in the file `/config/master.key`. This file should be git ignored which is why we need to add it to heroku separately.
+
+Once you have your rails master key, add it to heroku with the following CLI command:
+
+```bash
+heroku config:set RAILS_MASTER_KEY=<your-master-key>
+```
+
+*example*:
+
+```bash
+$ heroku config:set RAILS_MASTER_KEY=123456789
+```
+
 ## Front end deployment:
 
 
@@ -85,6 +92,14 @@ surge
 ```
 
 ### Netlify
+
+lets first add a `_redirects` file to our `public` directory. This is needed to resolve any react routing issues after deployment.
+
+- `cd client`
+
+- `echo "/* /index.html 200" > public/_redirects`
+
+Now we're ready to deploy to netlify!
 
 - Once you are logged into your netlify account on netlify.com,
 click on the "New site from Git"
